@@ -1,0 +1,16 @@
+{
+  "name": "control-semanal",
+  "version": "1.0.0",
+  "description": "Control de asistencia semanal - Calidad C05",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["asistencia", "control", "calidad"],
+  "author": "Control C05",
+  "license": "MIT"
+}
