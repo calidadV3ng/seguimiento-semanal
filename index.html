@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>📋 Control Semanal · Calidad · Con Feriados</title>
+  <title>📋 Control Semanal · Calidad</title>
   <style>
     * {
       box-sizing: border-box;
@@ -127,50 +127,6 @@
       padding: 0.1rem 0.5rem;
       font-size: 0.6rem;
     }
-    .btn-coverage {
-      background: #2a6a5a;
-      border-color: #4a8a7a;
-      color: #80d0c0;
-    }
-    .btn-coverage:hover {
-      background: #3a7a6a;
-    }
-    .btn-coverage.active {
-      background: #4a8a7a;
-      border-color: #6aaa9a;
-      color: #ffffff;
-      box-shadow: 0 0 20px rgba(74, 138, 122, 0.3);
-    }
-    .btn-conflicto {
-      background: #7a2a2a;
-      border-color: #9a3a3a;
-      color: #ff6b6b;
-    }
-    .btn-conflicto:hover {
-      background: #9a3a3a;
-    }
-    .btn-orange {
-      background: #7a5a2a;
-      border-color: #9a7a3a;
-      color: #f0d080;
-    }
-    .btn-orange:hover {
-      background: #9a6a3a;
-    }
-    .btn-feriado {
-      background: #5a3a2a;
-      border-color: #7a4a3a;
-      color: #f0b080;
-    }
-    .btn-feriado:hover {
-      background: #7a4a3a;
-    }
-    .btn-feriado.active {
-      background: #8a4a2a;
-      border-color: #aa5a3a;
-      color: #ffffff;
-      box-shadow: 0 0 20px rgba(138, 74, 42, 0.3);
-    }
 
     .semana-selector {
       display: flex;
@@ -250,27 +206,6 @@
       align-items: center;
       gap: 4px;
     }
-    .badge-coverage {
-      background: #2a5a4a;
-      color: #80d0c0;
-      padding: 0.1rem 0.6rem;
-      border-radius: 30px;
-      font-size: 0.6rem;
-      border: 1px solid #4a8a7a;
-    }
-    .badge-conflicto {
-      background: #5a2a2a;
-      color: #ff6b6b;
-      padding: 0.1rem 0.6rem;
-      border-radius: 30px;
-      font-size: 0.6rem;
-      border: 1px solid #8a3a3a;
-      animation: pulse-badge 1s ease-in-out infinite;
-    }
-    @keyframes pulse-badge {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
 
     .filtros-wrap {
       display: flex;
@@ -326,34 +261,11 @@
       font-size: 0.65rem;
       letter-spacing: 0.3px;
     }
-    th.feriado {
-      background: #2a1a1a;
-      color: #e08080;
-      border-color: #4a2a2a;
-    }
-    th.feriado .feriado-label {
-      display: block;
-      font-size: 0.5rem;
-      color: #f0b080;
-      background: #3a2a1a;
-      padding: 0.05rem 0.4rem;
-      border-radius: 20px;
-      margin-top: 0.1rem;
-    }
     td {
       padding: 0.25rem 0.15rem;
       border-bottom: 1px solid #1a2d3e;
       text-align: center;
       vertical-align: middle;
-    }
-    td.feriado {
-      background: #1a1a1a;
-      opacity: 0.5;
-    }
-    td.feriado .estado-btn {
-      cursor: not-allowed;
-      opacity: 0.3;
-      filter: grayscale(0.8);
     }
     .nombre-col {
       font-weight: 500;
@@ -369,15 +281,6 @@
       display: flex;
       align-items: center;
       gap: 6px;
-    }
-    .nombre-fijo .respaldo-nombre {
-      display: block;
-      font-size: 0.5rem;
-      color: #5a7a9a;
-      font-weight: 300;
-    }
-    .nombre-fijo .respaldo-nombre span {
-      color: #80d0c0;
     }
 
     .estado-btn {
@@ -426,176 +329,6 @@
       cursor: not-allowed;
       filter: grayscale(0.6);
     }
-
-    /* ===== ESTILOS COBERTURA ===== */
-    .coverage-cell {
-      padding: 0.15rem 0.1rem;
-    }
-    .coverage-cell.feriado {
-      background: #1a1a1a;
-      opacity: 0.4;
-    }
-    .coverage-card {
-      background: #0f1f2e;
-      border-radius: 10px;
-      padding: 0.3rem 0.2rem;
-      border: 2px solid transparent;
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.1rem;
-      min-height: 50px;
-      justify-content: center;
-    }
-    .coverage-card.presente {
-      border-color: #2b8c5e;
-      background: rgba(43, 140, 94, 0.1);
-    }
-    .coverage-card.ausente {
-      border-color: #c4903a;
-      background: rgba(196, 144, 58, 0.15);
-    }
-    .coverage-card.critico {
-      border-color: #ff6b6b;
-      background: rgba(255, 107, 107, 0.15);
-      animation: pulse-critical 1.5s ease-in-out infinite;
-    }
-    .coverage-card.cubierto {
-      border-color: #4a8a7a;
-      background: rgba(74, 138, 122, 0.15);
-    }
-    .coverage-card.comision {
-      border-color: #7a5a9e;
-      background: rgba(122, 90, 158, 0.15);
-    }
-    .coverage-card.conflicto {
-      border-color: #ff6b6b;
-      background: rgba(255, 107, 107, 0.25);
-      animation: pulse-conflicto 0.8s ease-in-out infinite;
-    }
-    .coverage-card.feriado {
-      border-color: #5a3a2a;
-      background: rgba(90, 58, 42, 0.15);
-      opacity: 0.5;
-    }
-    @keyframes pulse-critical {
-      0%, 100% { border-color: #ff6b6b; }
-      50% { border-color: #ff4444; box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
-    }
-    @keyframes pulse-conflicto {
-      0%, 100% { border-color: #ff6b6b; transform: scale(1); }
-      50% { border-color: #ff4444; transform: scale(1.02); box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
-    }
-    .coverage-status-icon {
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-    .coverage-status-text {
-      font-size: 0.55rem;
-      font-weight: 600;
-      color: #b6d0e8;
-    }
-    .coverage-backup-name {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: #80d0c0;
-      background: rgba(74, 138, 122, 0.2);
-      padding: 0.05rem 0.6rem;
-      border-radius: 30px;
-      border: 1px solid rgba(74, 138, 122, 0.3);
-    }
-    .coverage-backup-name.critical {
-      color: #ff6b6b;
-      border-color: rgba(255, 107, 107, 0.3);
-      background: rgba(255, 107, 107, 0.1);
-    }
-    .coverage-backup-name.conflicto {
-      color: #ff6b6b;
-      border-color: rgba(255, 107, 107, 0.5);
-      background: rgba(255, 107, 107, 0.2);
-      text-decoration: line-through;
-    }
-    .coverage-warning {
-      font-size: 0.5rem;
-      color: #ff6b6b;
-      background: rgba(255, 107, 107, 0.15);
-      padding: 0.05rem 0.4rem;
-      border-radius: 30px;
-      border: 1px solid rgba(255, 107, 107, 0.3);
-    }
-    .coverage-status-badge {
-      font-size: 0.5rem;
-      padding: 0.05rem 0.4rem;
-      border-radius: 30px;
-      background: #1a2d3e;
-      color: #5a7a9a;
-    }
-    .coverage-status-badge.ok {
-      background: #1a3a2a;
-      color: #60c080;
-    }
-    .coverage-status-badge.warning {
-      background: #3a3a1a;
-      color: #f0d080;
-    }
-    .coverage-status-badge.danger {
-      background: #3a1a1a;
-      color: #ff6b6b;
-      animation: pulse-badge 1s ease-in-out infinite;
-    }
-    .coverage-status-badge.info {
-      background: #1a2a3a;
-      color: #7a9fbf;
-    }
-    .coverage-status-badge.conflicto {
-      background: #3a1a1a;
-      color: #ff6b6b;
-      animation: pulse-badge 0.5s ease-in-out infinite;
-    }
-    .coverage-summary {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.1rem;
-      margin-top: 0.2rem;
-    }
-    .coverage-summary .status-dots {
-      display: flex;
-      gap: 0.2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .coverage-summary .dot-small {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .coverage-summary .dot-small.presente {
-      background: #2b8c5e;
-    }
-    .coverage-summary .dot-small.ausente {
-      background: #c4903a;
-    }
-    .coverage-summary .dot-small.critico {
-      background: #ff6b6b;
-    }
-    .coverage-summary .dot-small.cubierto {
-      background: #4a8a7a;
-    }
-    .coverage-summary .dot-small.comision {
-      background: #7a5a9e;
-    }
-    .coverage-summary .dot-small.conflicto {
-      background: #ff6b6b;
-      animation: pulse-badge 0.5s ease-in-out infinite;
-    }
-    .coverage-summary .dot-small.feriado {
-      background: #5a3a2a;
-      opacity: 0.5;
-    }
-    /* ===== FIN ESTILOS COBERTURA ===== */
 
     .total-col {
       font-weight: 600;
@@ -658,12 +391,6 @@
       border-color: #1e3347;
       color: #3a5a78;
     }
-    .escritorio.feriado {
-      background: #2a1a1a;
-      border-color: #3a2a2a;
-      color: #5a3a3a;
-      opacity: 0.5;
-    }
 
     .stats-bar {
       display: flex;
@@ -690,12 +417,6 @@
       font-weight: 600;
       font-size: 0.9rem;
       color: #d6e6f5;
-    }
-    .stat-value.warning {
-      color: #f0d080;
-    }
-    .stat-value.critical {
-      color: #ff6b6b;
     }
     .stat-badge {
       background: #1a2d3e;
@@ -805,7 +526,6 @@
     .dot-home { background: #2a7a9e; }
     .dot-comision { background: #7a5a9e; }
     .dot-licencia { background: #c4903a; }
-    .dot-feriado { background: #5a3a2a; }
 
     [data-tooltip] {
       position: relative;
@@ -877,7 +597,7 @@
       background: #162433;
       border-radius: 20px;
       border: 1px solid #2a4055;
-      max-width: 700px;
+      max-width: 500px;
       width: 90%;
       max-height: 80vh;
       display: flex;
@@ -900,105 +620,12 @@
       overflow-y: auto;
       flex: 1;
     }
-    .modal-footer {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      border-top: 1px solid #1e3347;
-      padding-top: 1rem;
-    }
-    .backup-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    .backup-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #0f1f2e;
-      padding: 0.5rem 0.8rem;
-      border-radius: 12px;
-      border: 1px solid #1a2d3e;
-    }
-    .backup-item .person {
-      font-weight: 500;
-      color: #c8dcee;
-      font-size: 0.8rem;
-      min-width: 100px;
-    }
-    .backup-item .arrow {
-      color: #5a7a9a;
-      font-size: 0.8rem;
-    }
-    .backup-item select {
-      flex: 1;
-      background: #1a2d3e;
-      color: #d6e6f5;
-      border: 1px solid #2a4055;
-      border-radius: 8px;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.7rem;
-      cursor: pointer;
-    }
-    .backup-item select:focus {
-      outline: none;
-      border-color: #4a7a9a;
-    }
-    .backup-item select option {
-      background: #0f1f2e;
-      color: #d6e6f5;
-    }
-    .backup-actions {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      border-top: 1px solid #1a2d3e;
-      padding-top: 1rem;
-    }
-    .backup-actions .btn {
-      flex: 1;
-      justify-content: center;
-    }
-    .conflicto-item {
-      background: #2a1a1a;
-      border: 1px solid #4a2a2a;
-      border-radius: 12px;
-      padding: 0.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .conflicto-item .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .conflicto-item .top .persona {
-      color: #ff6b6b;
-      font-weight: 600;
-    }
-    .conflicto-item .top .estado {
-      color: #8db4d4;
-      font-size: 0.7rem;
-    }
-    .conflicto-item .top .respaldo {
-      color: #ff6b6b;
-      font-weight: 600;
-    }
-    .conflicto-item .sugerencia {
-      margin-top: 0.5rem;
-      font-size: 0.7rem;
-      color: #f0d080;
-    }
     .personas-lista {
       display: flex;
       flex-direction: column;
       gap: 6px;
       margin-bottom: 1rem;
-      max-height: 200px;
+      max-height: 250px;
       overflow-y: auto;
     }
     .persona-item {
@@ -1030,57 +657,13 @@
       outline: none;
       border-color: #4a7a9a;
     }
-
-    /* FERIADOS - grid de días */
-    .feriados-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    .feriado-item {
+    .modal-footer {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #0f1f2e;
-      padding: 0.3rem 0.8rem;
-      border-radius: 12px;
-      border: 1px solid #1a2d3e;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-    .feriado-item:hover {
-      border-color: #4a6a88;
-    }
-    .feriado-item.marcado {
-      background: #2a1a1a;
-      border-color: #5a3a2a;
-    }
-    .feriado-item .check {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      border: 2px solid #2a4055;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: #5a7a9a;
-      transition: 0.15s;
-    }
-    .feriado-item.marcado .check {
-      background: #8a4a2a;
-      border-color: #aa5a3a;
-      color: #ffffff;
-    }
-    .feriado-item .label {
-      color: #c8dcee;
-      font-size: 0.75rem;
-    }
-    .feriado-item .fecha {
-      color: #6a8aaa;
-      font-size: 0.6rem;
-      margin-left: auto;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      border-top: 1px solid #1e3347;
+      padding-top: 1rem;
     }
 
     @media (max-width: 750px) {
@@ -1092,9 +675,6 @@
       .btn { font-size: 0.6rem; padding: 0.2rem 0.7rem; }
       .archivo-item { font-size: 0.5rem; padding: 0.05rem 0.4rem; }
       .modal { max-width: 95%; }
-      .backup-grid { grid-template-columns: 1fr; }
-      .coverage-summary .status-dots { max-width: 60px; }
-      .feriados-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
     }
   </style>
 </head>
@@ -1107,22 +687,14 @@
         <span class="subhead">Calidad · C05</span>
       </h1>
       <div class="toolbar">
-        <button class="btn btn-sync" :class="{ saving: saving }" @click="syncNow">💾 Sincronizar</button>
-        <button class="btn btn-success" @click="copiarSemana">📋 Copiar</button>
-        <button class="btn btn-info" @click="exportarCSVActual">📊 CSV</button>
+        <button class="btn btn-sync" :class="{ saving: saving }" @click="syncNow" data-tooltip="Guardar en el servidor">
+          {{ saving ? '⏳ Guardando...' : '💾 Sincronizar' }}
+        </button>
+        <button class="btn btn-success" @click="copiarSemana" data-tooltip="Copia los estados de la semana actual a la siguiente">📋 Copiar</button>
+        <button class="btn btn-info" @click="exportarCSVActual" data-tooltip="Exportar semana actual a CSV">📊 CSV</button>
         <button class="btn btn-warning" @click="forzarActualizacion">🔄 Actualizar</button>
         <button class="btn btn-danger" @click="clearAll">🗑️ Limpiar</button>
         <button class="btn btn-info" @click="mostrarModalPersonas">👥 Gestionar</button>
-        <button class="btn btn-feriado" :class="{ active: showFeriadosModal }" @click="toggleFeriadosModal">
-          🏖️ Feriados
-        </button>
-        <button class="btn btn-coverage" :class="{ active: showCoverageView }" @click="toggleCoverageView">
-          🛡️ Cobertura
-        </button>
-        <button class="btn btn-orange" @click="abrirModalBackup" v-if="showCoverageView">👤 Respaldos</button>
-        <button class="btn btn-conflicto" @click="verificarConflictos" v-if="showCoverageView">
-          ⚠️ Verificar
-        </button>
       </div>
     </div>
 
@@ -1144,13 +716,6 @@
         <span style="color:#7a9fbf;">👥 {{ personasActivas }} activas</span>
         <span style="color:#4a6a88;">|</span>
         <span style="color:#5a7a9a;font-size:0.6rem;">📦 {{ archivos.length }}</span>
-        <span v-if="showCoverageView" class="badge-coverage">🛡️ Cobertura</span>
-        <span v-if="showCoverageView && conflictosTotales > 0" class="badge-conflicto">
-          ⚠️ {{ conflictosTotales }}
-        </span>
-        <span v-if="feriadosSemanaActual > 0" class="badge-vencida">
-          🏖️ {{ feriadosSemanaActual }} feriado{{ feriadosSemanaActual > 1 ? 's' : '' }}
-        </span>
         <span v-if="connected" class="badge-sync">✅ Conectado</span>
         <span v-else class="badge-vencida">⚠️ Sin conexión</span>
       </div>
@@ -1172,23 +737,9 @@
       <table>
         <thead>
           <tr>
-            <th style="text-align:left; padding-left:10px; min-width:180px;">Nombre</th>
-            <th v-for="(dia, idx) in diasConFecha(semanaActual)" :key="idx"
-                :class="{ feriado: esFeriado(dia.dia, semanaActual) }">
-              <div>{{ dia.dia }}</div>
-              <span style="font-weight:400;color:#6a8aaa;font-size:0.55rem;">{{ dia.fecha }}</span>
-              <span v-if="esFeriado(dia.dia, semanaActual)" class="feriado-label">🏖️ FERIADO</span>
-              <!-- Resumen de cobertura -->
-              <div v-if="showCoverageView" class="coverage-summary">
-                <span class="day-badge" :class="getDiaBadgeClass(dia.dia)">
-                  {{ getDiaCobertura(dia.dia) }}
-                </span>
-                <div class="status-dots">
-                  <span v-for="person in people" :key="person.name" 
-                        class="dot-small" 
-                        :class="getDotStatus(person, dia.dia)"></span>
-                </div>
-              </div>
+            <th style="text-align:left; padding-left:10px;">Nombre</th>
+            <th v-for="(dia, idx) in diasConFecha(semanaActual)" :key="idx">
+              {{ dia.dia }} <span style="font-weight:400;color:#6a8aaa;">{{ dia.fecha }}</span>
             </th>
             <th>👤 Pres</th>
             <th>🏠 Home</th>
@@ -1201,49 +752,16 @@
             <td class="nombre-col">
               <div class="nombre-fijo">
                 <span>{{ person.name }}</span>
-                <span v-if="showCoverageView && backupPlan[person.name]" 
-                      class="respaldo-nombre">
-                  Resp: <span>{{ backupPlan[person.name] }}</span>
-                </span>
               </div>
             </td>
-            <td v-for="(dia, idxDia) in diasConFecha(semanaActual)" :key="idxDia" 
-                :class="[showCoverageView ? 'coverage-cell' : '', { feriado: esFeriado(dia.dia, semanaActual) }]">
-              
-              <!-- Modo Estados -->
-              <div v-if="!showCoverageView">
-                <button class="estado-btn"
-                        :class="[getEstadoClass(getEstadoSemana(person, semanaActual, dia.dia)), { deshabilitado: semanaVencida(semanaActual) || esFeriado(dia.dia, semanaActual) }]"
-                        @click="cambiarEstado(person, semanaActual, dia.dia)"
-                        :disabled="semanaVencida(semanaActual) || esFeriado(dia.dia, semanaActual)"
-                        :data-tooltip="getTooltipEstado(getEstadoSemana(person, semanaActual, dia.dia))">
-                  {{ getEstadoLabel(getEstadoSemana(person, semanaActual, dia.dia)) }}
-                </button>
-              </div>
-              
-              <!-- Modo Cobertura -->
-              <div v-else class="coverage-card" 
-                   :class="[getCoverageCardClass(person, dia.dia), { feriado: esFeriado(dia.dia, semanaActual) }]">
-                <div class="coverage-status-icon">
-                  {{ esFeriado(dia.dia, semanaActual) ? '🏖️' : getCoverageIcon(person, dia.dia) }}
-                </div>
-                <div class="coverage-status-text">
-                  {{ esFeriado(dia.dia, semanaActual) ? 'FERIADO' : getCoverageStatusText(person, dia.dia) }}
-                </div>
-                <div v-if="!esFeriado(dia.dia, semanaActual) && necesitaCobertura(person, dia.dia)">
-                  <div class="coverage-backup-name"
-                       :class="getCoverageBackupClass(person, dia.dia)">
-                    {{ getCoverageBackupName(person, dia.dia) }}
-                  </div>
-                  <div v-if="tieneConflicto(person, dia.dia)" class="coverage-warning">
-                    ⚠️ {{ getConflictoMensaje(person, dia.dia) }}
-                  </div>
-                </div>
-                <span class="coverage-status-badge" 
-                      :class="esFeriado(dia.dia, semanaActual) ? 'info' : getCoverageBadgeStatus(person, dia.dia)">
-                  {{ esFeriado(dia.dia, semanaActual) ? '🏖️' : getCoverageBadgeLabel(person, dia.dia) }}
-                </span>
-              </div>
+            <td v-for="(dia, idxDia) in diasConFecha(semanaActual)" :key="idxDia">
+              <button class="estado-btn"
+                      :class="[getEstadoClass(getEstadoSemana(person, semanaActual, dia.dia)), { deshabilitado: semanaVencida(semanaActual) }]"
+                      @click="cambiarEstado(person, semanaActual, dia.dia)"
+                      :disabled="semanaVencida(semanaActual)"
+                      :data-tooltip="getTooltipEstado(getEstadoSemana(person, semanaActual, dia.dia))">
+                {{ getEstadoLabel(getEstadoSemana(person, semanaActual, dia.dia)) }}
+              </button>
             </td>
             <td class="total-col total-presencial">{{ countStatusSemana(person, semanaActual, 'Presencial') }}</td>
             <td class="total-col total-home">{{ countStatusSemana(person, semanaActual, 'Home Office') }}</td>
@@ -1269,7 +787,7 @@
             {{ i }}
           </div>
         </div>
-        <span class="ocupacion-num">{{ esFeriado(dia.dia, semanaActual) ? '🏖️' : ocupacionPorDia(semanaActual, dia.dia) }}</span>
+        <span class="ocupacion-num">{{ ocupacionPorDia(semanaActual, dia.dia) }}</span>
       </div>
     </div>
 
@@ -1281,8 +799,8 @@
         <span class="fecha">{{ arch.rango }}</span>
         <span style="color:#4a6a88;">·</span>
         <span style="color:#6a8aaa;">{{ arch.totalRegistros }} reg</span>
-        <button class="btn-desc" @click="descargarArchivo(arch)">📥</button>
-        <button class="btn-del" @click="eliminarArchivo(idx)">✕</button>
+        <button class="btn-desc" @click="descargarArchivo(arch)" data-tooltip="Descargar CSV">📥</button>
+        <button class="btn-del" @click="eliminarArchivo(idx)" data-tooltip="Eliminar">✕</button>
       </span>
       <span v-if="archivos.length > 0" style="margin-left:auto;">
         <button class="btn btn-danger" style="font-size:0.5rem;padding:0.05rem 0.5rem;" @click="eliminarTodosArchivos">🗑️ Todo</button>
@@ -1294,20 +812,8 @@
       <div class="stat-item"><span class="stat-label">Presencial</span> <span class="stat-value">{{ totalPresencialSemana(semanaActual) }}</span></div>
       <div class="stat-item"><span class="stat-label">Home</span> <span class="stat-value">{{ totalHomeSemana(semanaActual) }}</span></div>
       <div class="stat-item"><span class="stat-label">Comisión</span> <span class="stat-value">{{ totalComisionSemana(semanaActual) }}</span></div>
-      <div class="stat-item"><span class="stat-label">Licencia</span> 
-        <span class="stat-value" :class="{ warning: totalLicenciaSemana(semanaActual) >= 3, critical: totalLicenciaSemana(semanaActual) >= 5 }">
-          {{ totalLicenciaSemana(semanaActual) }}
-        </span>
-      </div>
+      <div class="stat-item"><span class="stat-label">Licencia</span> <span class="stat-value">{{ totalLicenciaSemana(semanaActual) }}</span></div>
       <div class="stat-item"><span class="stat-label">📊 Activos</span> <span class="stat-value">{{ totalActivosSemana(semanaActual) }}</span></div>
-      <div v-if="showCoverageView" class="stat-item">
-        <span class="stat-label">⚠️ Conflictos</span> 
-        <span class="stat-value" :class="{ critical: conflictosTotales > 0 }">{{ conflictosTotales }}</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">🏖️ Feriados</span> 
-        <span class="stat-value">{{ feriadosSemanaActual }}</span>
-      </div>
       <div class="stat-item" style="margin-left:auto;">
         <span class="stat-badge">👥 {{ people.length }} personas</span>
       </div>
@@ -1320,15 +826,13 @@
         <span class="legend-item"><span class="dot dot-home"></span> Home Office</span>
         <span class="legend-item"><span class="dot dot-comision"></span> Comisión</span>
         <span class="legend-item"><span class="dot dot-licencia"></span> Licencia 🏖️</span>
-        <span class="legend-item"><span class="dot dot-feriado"></span> Feriado 🏖️</span>
-        <span v-if="showCoverageView" class="legend-item" style="color:#ff6b6b;">⚠️ Conflicto: El respaldo también está ausente</span>
-        <span v-else class="legend-item" style="color:#5a7a9a;">🪑 8 escritorios</span>
+        <span class="legend-item" style="color:#5a7a9a;">🪑 8 escritorios</span>
       </div>
       <span style="color:#4a6a88;">💡 Las semanas vencidas se archivan automáticamente</span>
     </div>
   </div>
 
-  <!-- MODAL GESTIONAR PERSONAS -->
+  <!-- MODAL PARA GESTIONAR PERSONAS -->
   <div class="modal-overlay" v-if="modalPersonasVisible" @click.self="cerrarModalPersonas">
     <div class="modal">
       <div class="modal-header">
@@ -1336,127 +840,29 @@
         <button class="btn btn-danger" @click="cerrarModalPersonas">✕</button>
       </div>
       <div class="modal-body">
+        <!-- Lista de personas actuales -->
         <div class="personas-lista">
           <div v-for="(person, idx) in people" :key="idx" class="persona-item">
             <span>{{ person.name }}</span>
             <button class="btn btn-danger btn-small" @click="eliminarPersona(idx)">🗑️</button>
           </div>
         </div>
+        
+        <!-- Agregar nueva persona -->
         <div class="agregar-persona">
           <input type="text" v-model="nuevaPersona" placeholder="Nombre completo" @keyup.enter="agregarPersona">
           <button class="btn btn-success" @click="agregarPersona">➕ Agregar</button>
         </div>
+        
         <div class="modal-footer">
           <button class="btn btn-warning" @click="resetearPersonas">🔄 Restaurar lista original</button>
-          <button class="btn btn-success" @click="guardarCambiosPersonas">💾 Guardar</button>
+          <button class="btn btn-success" @click="guardarCambiosPersonas">💾 Guardar cambios</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL FERIADOS -->
-  <div class="modal-overlay" v-if="modalFeriadosVisible" @click.self="cerrarFeriadosModal">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>🏖️ Gestionar Feriados</h2>
-        <button class="btn btn-danger" @click="cerrarFeriadosModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <p style="color:#8db4d4;font-size:0.8rem;margin-bottom:1rem;">
-          Marca los días que son feriados. Los estados quedarán bloqueados.
-        </p>
-        <div class="feriados-grid">
-          <div v-for="dia in diasFeriadosDisponibles" :key="dia.key" 
-               class="feriado-item"
-               :class="{ marcado: dia.marcado }"
-               @click="toggleFeriado(dia)">
-            <div class="check">{{ dia.marcado ? '✓' : '' }}</div>
-            <span class="label">{{ dia.dia }}</span>
-            <span class="fecha">{{ dia.fecha }}</span>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" @click="limpiarFeriados">🗑️ Limpiar todos</button>
-          <button class="btn btn-success" @click="guardarFeriados">💾 Guardar feriados</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL RESPALDOS -->
-  <div class="modal-overlay" v-if="modalBackupVisible" @click.self="modalBackupVisible = false">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>👤 Plan de Respaldos</h2>
-        <button class="btn btn-danger" @click="modalBackupVisible = false">✕</button>
-      </div>
-      <div class="modal-body">
-        <p style="color:#8db4d4;font-size:0.8rem;margin-bottom:1rem;">
-          Asigna quién cubre a cada persona cuando está ausente (Licencia, Comisión o Sin asignar)
-        </p>
-        <div class="backup-grid">
-          <div v-for="person in people" :key="person.name" class="backup-item">
-            <span class="person">{{ person.name }}</span>
-            <span class="arrow">→</span>
-            <select v-model="backupPlan[person.name]">
-              <option v-for="p in people" :key="p.name" :value="p.name" v-if="p.name !== person.name">
-                {{ p.name }}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="backup-actions">
-          <button class="btn btn-success" @click="guardarBackup">💾 Guardar respaldos</button>
-          <button class="btn btn-info" @click="resetBackupDefaults">🔄 Restaurar</button>
-          <button class="btn btn-danger" @click="modalBackupVisible = false">✕ Cerrar</button>
-        </div>
-        <div style="margin-top:0.8rem; font-size:0.65rem; color:#5a7a9a; border-top:1px solid #1a2d3e; padding-top:0.8rem;">
-          💡 <strong>Estados que requieren respaldo:</strong><br>
-          🟡 Licencia · 🟣 Comisión · ⚠️ Sin asignar
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL CONFLICTOS -->
-  <div class="modal-overlay" v-if="modalConflictosVisible" @click.self="modalConflictosVisible = false">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>⚠️ Conflictos de Cobertura</h2>
-        <button class="btn btn-danger" @click="modalConflictosVisible = false">✕</button>
-      </div>
-      <div class="modal-body">
-        <p style="color:#8db4d4;font-size:0.8rem;margin-bottom:1rem;">
-          Personas que necesitan cobertura pero su respaldo también está ausente
-        </p>
-        <div v-if="conflictosLista.length === 0" style="color:#60c080;padding:1rem;text-align:center;">
-          ✅ ¡No hay conflictos! Todas las coberturas están bien asignadas.
-        </div>
-        <div v-for="conflicto in conflictosLista" :key="conflicto.id" class="conflicto-item">
-          <div class="top">
-            <div>
-              <span class="persona">🔴 {{ conflicto.persona }}</span>
-              <span class="estado"> está de {{ conflicto.estado }}</span>
-              <span style="color:#5a7a9a;font-size:0.6rem;"> ({{ conflicto.dia }})</span>
-            </div>
-            <div>
-              <span style="color:#5a7a9a;font-size:0.7rem;">Respaldo:</span>
-              <span class="respaldo">{{ conflicto.respaldo }}</span>
-              <span class="estado"> también está de {{ conflicto.estadoRespaldo }}</span>
-            </div>
-          </div>
-          <div class="sugerencia">
-            💡 Sugerencia: Asigna un respaldo alternativo para {{ conflicto.persona }} o cambia el estado de {{ conflicto.respaldo }}
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" @click="modalConflictosVisible = false">✕ Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast -->
+  <!-- Toast notification -->
   <div class="toast" :class="{ show: toastVisible, success: toastType === 'success', error: toastType === 'error', info: toastType === 'info' }">
     {{ toastMessage }}
   </div>
@@ -1465,7 +871,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 <script>
   (function() {
-    // NOMBRES ORIGINALES
+    // ✅ NOMBRES ORIGINALES
     const FIXED_NAMES = [
       'Lucas Minetti',
       'Soledad Vega',
@@ -1486,30 +892,13 @@
 
     const ESTADOS = ['', 'Presencial', 'Home Office', 'Comisión', 'Licencia'];
     const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-    const DIAS_SEMANA = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
 
-    const DEFAULT_BACKUPS = {
-      'Lucas Minetti': 'Soledad Vega',
-      'Soledad Vega': 'Gustavo Ramirez',
-      'Gustavo Ramirez': 'Santiago Corbalan Bueno',
-      'Santiago Corbalan Bueno': 'Yannick Durand',
-      'Yannick Durand': 'Norma Turati',
-      'Norma Turati': 'Veronica Garcia',
-      'Veronica Garcia': 'Noelia Valencia',
-      'Noelia Valencia': 'Dario Rivero',
-      'Dario Rivero': 'Manuel Alvarez Bocco',
-      'Manuel Alvarez Bocco': 'Pablo Garcia',
-      'Pablo Garcia': 'Mariano Garcia',
-      'Mariano Garcia': 'Agustina Castelli',
-      'Agustina Castelli': 'Emanuel Garcia',
-      'Emanuel Garcia': 'Ruben Ojer',
-      'Ruben Ojer': 'Lucas Minetti'
-    };
-
+    // Crear objeto de semana vacía
     function crearSemanaVacia() {
       return { Lunes: '', Martes: '', Miércoles: '', Jueves: '', Viernes: '' };
     }
 
+    // Crear persona con semanas vacías
     function crearPersona(nombre) {
       return {
         name: nombre,
@@ -1521,16 +910,11 @@
       };
     }
 
-    // Generar key para feriado: semanaIndex + dia
-    function feriadoKey(semanaIndex, dia) {
-      return `s${semanaIndex}-${dia}`;
-    }
-
     new Vue({
       el: '#app',
       data: {
         people: [],
-        days: DIAS_SEMANA,
+        days: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
         semanaActual: 0,
         totalEscritorios: 8,
         filtro: 'todos',
@@ -1542,16 +926,10 @@
         toastMessage: '',
         toastType: 'info',
         toastTimeout: null,
+        // Modal personas
         modalPersonasVisible: false,
-        modalBackupVisible: false,
-        modalConflictosVisible: false,
-        modalFeriadosVisible: false,
         nuevaPersona: '',
-        showCoverageView: false,
-        backupPlan: { ...DEFAULT_BACKUPS },
-        // Feriados: objeto con keys "s0-Lunes", "s1-Martes", etc.
-        feriados: {},
-        feriadosBackup: {}
+        personasOriginales: []
       },
       mounted() {
         this.init();
@@ -1584,37 +962,9 @@
             if (activo) count++;
           });
           return count;
-        },
-        // ===== FERIADOS =====
-        feriadosSemanaActual() {
-          let count = 0;
-          this.days.forEach(d => {
-            if (this.esFeriado(d, this.semanaActual)) count++;
-          });
-          return count;
-        },
-        diasFeriadosDisponibles() {
-          const dias = this.diasConFecha(this.semanaActual);
-          return dias.map(d => {
-            const key = feriadoKey(this.semanaActual, d.dia);
-            return {
-              key: key,
-              dia: d.dia,
-              fecha: d.fecha,
-              marcado: this.feriados[key] === true
-            };
-          });
-        },
-        // ===== COBERTURA =====
-        conflictosTotales() {
-          return this.getConflictos().length;
-        },
-        conflictosLista() {
-          return this.getConflictos();
         }
       },
       methods: {
-        // ===== INICIALIZACIÓN =====
         async init() {
           const cargado = await this.cargarDelServidor();
           if (!cargado) {
@@ -1638,7 +988,6 @@
           }, 3000);
         },
 
-        // ===== SERVIDOR =====
         async guardarEnServidor(mostrarFeedback = true) {
           if (this.saving) return;
           this.saving = true;
@@ -1646,9 +995,7 @@
             const datos = {
               personas: this.people,
               semanaActual: this.semanaActual,
-              archivos: this.archivos,
-              backupPlan: this.backupPlan,
-              feriados: this.feriados
+              archivos: this.archivos
             };
             const res = await fetch('/api/guardar', {
               method: 'POST',
@@ -1659,7 +1006,7 @@
             if (result.ok) {
               this.connected = true;
               if (mostrarFeedback) {
-                this.mostrarToast('✅ Datos guardados', 'success');
+                this.mostrarToast('✅ Datos guardados correctamente', 'success');
               }
             } else {
               this.connected = false;
@@ -1687,14 +1034,8 @@
               if (datos.archivos) {
                 this.archivos = datos.archivos;
               }
-              if (datos.backupPlan) {
-                this.backupPlan = datos.backupPlan;
-              }
-              if (datos.feriados) {
-                this.feriados = datos.feriados;
-              }
               this.connected = true;
-              this.mostrarToast('✅ Datos cargados', 'success');
+              this.mostrarToast('✅ Datos cargados desde el servidor', 'success');
               return true;
             }
             return false;
@@ -1708,7 +1049,6 @@
           this.guardarEnServidor(true);
         },
 
-        // ===== SEMANAS =====
         calcularSemanasDelMes() {
           const hoy = new Date();
           const mes = hoy.getMonth();
@@ -1784,12 +1124,17 @@
         },
 
         actualizarFechas() {
+          let semanaActiva = 0;
           for (let i = 0; i < this.semanasDelMes.length; i++) {
-            if (this.semanaVencida(i)) {
-              this.guardarSemanaArchivo(i);
+            if (!this.semanaVencida(i)) {
+              semanaActiva = i;
+              break;
             }
           }
+          
           if (this.semanaVencida(this.semanaActual)) {
+            this.guardarSemanaArchivo(this.semanaActual);
+            
             let encontrada = false;
             for (let i = this.semanaActual + 1; i < this.semanasDelMes.length; i++) {
               if (!this.semanaVencida(i)) {
@@ -1862,6 +1207,27 @@
           this.semanaActual = semanaIndex;
         },
 
+        copiarSemana() {
+          if (this.semanaVencida(this.semanaActual)) {
+            this.mostrarToast('⚠️ La semana actual está vencida. No se puede copiar.', 'error');
+            return;
+          }
+          const origen = `semana${this.semanaActual + 1}`;
+          const destino = `semana${this.semanaActual + 2}`;
+          if (this.semanaActual + 1 >= this.semanasDelMes.length) {
+            this.mostrarToast('⚠️ No hay semana siguiente para copiar.', 'error');
+            return;
+          }
+          this.people.forEach(p => {
+            if (!p[destino]) p[destino] = crearSemanaVacia();
+            Object.keys(p[origen]).forEach(dia => {
+              p[destino][dia] = p[origen][dia];
+            });
+          });
+          this.guardarEnServidor(false);
+          this.mostrarToast('✅ Semana copiada exitosamente', 'success');
+        },
+
         diasConFecha(semanaIndex) {
           const lunes = this.getLunesSemana(semanaIndex);
           if (!lunes) return this.days.map(d => ({ dia: d, fecha: '--/--' }));
@@ -1889,23 +1255,12 @@
 
         cambiarEstado(person, semanaIndex, dia) {
           if (this.semanaVencida(semanaIndex)) return;
-          if (this.esFeriado(dia, semanaIndex)) {
-            this.mostrarToast('🏖️ Es feriado, no se puede modificar', 'info');
-            return;
-          }
           const semanaData = this.getSemanaData(person, semanaIndex);
           const actual = semanaData[dia] || '';
           const idx = ESTADOS.indexOf(actual);
           const siguiente = ESTADOS[(idx + 1) % ESTADOS.length];
           semanaData[dia] = siguiente;
           this.guardarEnServidor(false);
-          
-          this.$nextTick(() => {
-            const conflictos = this.getConflictos();
-            if (conflictos.length > 0 && this.showCoverageView) {
-              this.mostrarToast(`⚠️ Hay ${conflictos.length} conflicto(s) de cobertura`, 'error');
-            }
-          });
         },
 
         getEstadoClass(value) {
@@ -1938,62 +1293,14 @@
         countStatusSemana(person, semanaIndex, status) {
           const semanaData = this.getSemanaData(person, semanaIndex);
           let c = 0;
-          this.days.forEach(d => { 
-            if (!this.esFeriado(d, semanaIndex) && semanaData[d] === status) c++; 
-          });
+          this.days.forEach(d => { if (semanaData[d] === status) c++; });
           return c;
         },
 
-        // ===== FERIADOS =====
-        esFeriado(dia, semanaIndex) {
-          const key = feriadoKey(semanaIndex, dia);
-          return this.feriados[key] === true;
-        },
-
-        toggleFeriadosModal() {
-          this.modalFeriadosVisible = !this.modalFeriadosVisible;
-          if (this.modalFeriadosVisible) {
-            this.feriadosBackup = { ...this.feriados };
-          }
-        },
-
-        cerrarFeriadosModal() {
-          this.modalFeriadosVisible = false;
-          this.feriados = { ...this.feriadosBackup };
-        },
-
-        toggleFeriado(diaInfo) {
-          const key = diaInfo.key;
-          if (this.feriados[key]) {
-            delete this.feriados[key];
-          } else {
-            this.feriados[key] = true;
-          }
-          // Forzar actualización
-          this.$forceUpdate();
-        },
-
-        guardarFeriados() {
-          this.guardarEnServidor(false);
-          this.modalFeriadosVisible = false;
-          this.mostrarToast('✅ Feriados guardados', 'success');
-        },
-
-        limpiarFeriados() {
-          if (confirm('¿Eliminar todos los feriados de esta semana?')) {
-            this.days.forEach(d => {
-              const key = feriadoKey(this.semanaActual, d);
-              delete this.feriados[key];
-            });
-            this.$forceUpdate();
-            this.mostrarToast('🗑️ Feriados limpiados', 'info');
-          }
-        },
-
         ocupacionPorDia(semanaIndex, dia) {
-          if (this.esFeriado(dia, semanaIndex)) return '🏖️';
           let count = 0;
           this.people.forEach(p => {
+            // Excluir a los que no usan escritorio (puedes ajustar esta lista)
             const excluidos = ['Agustina Castelli', 'Emanuel Garcia', 'Ruben Ojer'];
             if (excluidos.includes(p.name)) return;
             const semanaData = this.getSemanaData(p, semanaIndex);
@@ -2003,7 +1310,6 @@
         },
 
         getEscritorioClass(semanaIndex, dia, index) {
-          if (this.esFeriado(dia, semanaIndex)) return 'feriado';
           const ocupados = this.ocupacionPorDia(semanaIndex, dia);
           return index < ocupados ? 'ocupado' : 'vacio';
         },
@@ -2012,9 +1318,7 @@
           let n = 0;
           this.people.forEach(p => {
             const semanaData = this.getSemanaData(p, semanaIndex);
-            this.days.forEach(d => { 
-              if (!this.esFeriado(d, semanaIndex) && semanaData[d] === 'Presencial') n++; 
-            });
+            this.days.forEach(d => { if (semanaData[d] === 'Presencial') n++; });
           });
           return n;
         },
@@ -2023,9 +1327,7 @@
           let n = 0;
           this.people.forEach(p => {
             const semanaData = this.getSemanaData(p, semanaIndex);
-            this.days.forEach(d => { 
-              if (!this.esFeriado(d, semanaIndex) && semanaData[d] === 'Home Office') n++; 
-            });
+            this.days.forEach(d => { if (semanaData[d] === 'Home Office') n++; });
           });
           return n;
         },
@@ -2034,9 +1336,7 @@
           let n = 0;
           this.people.forEach(p => {
             const semanaData = this.getSemanaData(p, semanaIndex);
-            this.days.forEach(d => { 
-              if (!this.esFeriado(d, semanaIndex) && semanaData[d] === 'Comisión') n++; 
-            });
+            this.days.forEach(d => { if (semanaData[d] === 'Comisión') n++; });
           });
           return n;
         },
@@ -2045,9 +1345,7 @@
           let n = 0;
           this.people.forEach(p => {
             const semanaData = this.getSemanaData(p, semanaIndex);
-            this.days.forEach(d => { 
-              if (!this.esFeriado(d, semanaIndex) && semanaData[d] === 'Licencia') n++; 
-            });
+            this.days.forEach(d => { if (semanaData[d] === 'Licencia') n++; });
           });
           return n;
         },
@@ -2057,31 +1355,10 @@
           this.people.forEach(p => {
             const semanaData = this.getSemanaData(p, semanaIndex);
             this.days.forEach(d => {
-              if (!this.esFeriado(d, semanaIndex) && (semanaData[d] === 'Presencial' || semanaData[d] === 'Home Office')) n++;
+              if (semanaData[d] === 'Presencial' || semanaData[d] === 'Home Office') n++;
             });
           });
           return n;
-        },
-
-        copiarSemana() {
-          if (this.semanaVencida(this.semanaActual)) {
-            this.mostrarToast('⚠️ La semana actual está vencida', 'error');
-            return;
-          }
-          if (this.semanaActual + 1 >= this.semanasDelMes.length) {
-            this.mostrarToast('⚠️ No hay semana siguiente', 'error');
-            return;
-          }
-          const origen = `semana${this.semanaActual + 1}`;
-          const destino = `semana${this.semanaActual + 2}`;
-          this.people.forEach(p => {
-            if (!p[destino]) p[destino] = crearSemanaVacia();
-            Object.keys(p[origen]).forEach(dia => {
-              p[destino][dia] = p[origen][dia];
-            });
-          });
-          this.guardarEnServidor(false);
-          this.mostrarToast('✅ Semana copiada', 'success');
         },
 
         exportarCSVActual() {
@@ -2091,11 +1368,11 @@
             const data = p[semanaDataKey] || crearSemanaVacia();
             const fila = [
               p.name,
-              this.esFeriado('Lunes', this.semanaActual) ? 'FERIADO' : data.Lunes || '',
-              this.esFeriado('Martes', this.semanaActual) ? 'FERIADO' : data.Martes || '',
-              this.esFeriado('Miércoles', this.semanaActual) ? 'FERIADO' : data['Miércoles'] || '',
-              this.esFeriado('Jueves', this.semanaActual) ? 'FERIADO' : data.Jueves || '',
-              this.esFeriado('Viernes', this.semanaActual) ? 'FERIADO' : data.Viernes || ''
+              data.Lunes || '',
+              data.Martes || '',
+              data['Miércoles'] || '',
+              data.Jueves || '',
+              data.Viernes || ''
             ];
             csv += fila.join(',') + '\n';
           });
@@ -2144,8 +1421,6 @@
         resetToExample() {
           this.people = FIXED_NAMES.map(nombre => crearPersona(nombre));
           this.semanaActual = 0;
-          this.backupPlan = { ...DEFAULT_BACKUPS };
-          this.feriados = {};
         },
 
         clearAll() {
@@ -2165,8 +1440,9 @@
           }
         },
 
-        // ===== GESTIÓN PERSONAS =====
+        // ========== GESTIÓN DE PERSONAS ==========
         mostrarModalPersonas() {
+          this.personasOriginales = [...this.people.map(p => p.name)];
           this.modalPersonasVisible = true;
           this.nuevaPersona = '';
         },
@@ -2182,12 +1458,13 @@
             this.mostrarToast('⚠️ Ingresa un nombre', 'error');
             return;
           }
+          
           if (this.people.some(p => p.name.toLowerCase() === nombre.toLowerCase())) {
             this.mostrarToast('⚠️ Esta persona ya existe', 'error');
             return;
           }
+          
           this.people.push(crearPersona(nombre));
-          this.backupPlan[nombre] = this.people.find(p => p.name !== nombre)?.name || '';
           this.nuevaPersona = '';
           this.mostrarToast(`✅ ${nombre} agregado`, 'success');
         },
@@ -2196,7 +1473,6 @@
           const nombre = this.people[index].name;
           if (confirm(`¿Eliminar a ${nombre}?`)) {
             this.people.splice(index, 1);
-            delete this.backupPlan[nombre];
             this.mostrarToast(`🗑️ ${nombre} eliminado`, 'info');
           }
         },
@@ -2211,278 +1487,6 @@
         guardarCambiosPersonas() {
           this.guardarEnServidor(true);
           this.cerrarModalPersonas();
-        },
-
-        // ===== COBERTURA =====
-        toggleCoverageView() {
-          this.showCoverageView = !this.showCoverageView;
-          if (this.showCoverageView) {
-            const conflictos = this.getConflictos();
-            if (conflictos.length > 0) {
-              this.mostrarToast(`⚠️ Hay ${conflictos.length} conflicto(s) de cobertura`, 'error');
-            }
-          }
-        },
-
-        abrirModalBackup() {
-          this.modalBackupVisible = true;
-        },
-
-        guardarBackup() {
-          this.guardarEnServidor(false);
-          this.modalBackupVisible = false;
-          this.mostrarToast('✅ Plan de respaldos guardado', 'success');
-          this.$nextTick(() => {
-            const conflictos = this.getConflictos();
-            if (conflictos.length > 0) {
-              this.mostrarToast(`⚠️ Hay ${conflictos.length} conflicto(s) de cobertura`, 'error');
-            }
-          });
-        },
-
-        resetBackupDefaults() {
-          if (confirm('¿Restaurar los respaldos por defecto?')) {
-            this.backupPlan = { ...DEFAULT_BACKUPS };
-            this.guardarEnServidor(false);
-            this.mostrarToast('🔄 Respaldos restaurados', 'success');
-          }
-        },
-
-        verificarConflictos() {
-          const conflictos = this.getConflictos();
-          if (conflictos.length === 0) {
-            this.mostrarToast('✅ ¡No hay conflictos!', 'success');
-          } else {
-            this.modalConflictosVisible = true;
-            this.mostrarToast(`⚠️ ${conflictos.length} conflicto(s) encontrados`, 'error');
-          }
-        },
-
-        // ===== MÉTODOS DE COBERTURA =====
-        getEstadoPersona(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return 'FERIADO';
-          return this.getEstadoSemana(person, this.semanaActual, dia);
-        },
-
-        necesitaCobertura(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return false;
-          const estado = this.getEstadoPersona(person, dia);
-          return estado === 'Licencia' || estado === 'Comisión' || estado === '';
-        },
-
-        tieneRespaldo(person) {
-          return this.backupPlan[person.name] && this.backupPlan[person.name] !== 'Sin respaldo';
-        },
-
-        tieneConflicto(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return false;
-          if (!this.necesitaCobertura(person, dia)) return false;
-          if (!this.tieneRespaldo(person)) return false;
-          
-          const respaldo = this.backupPlan[person.name];
-          const respaldoObj = this.people.find(p => p.name === respaldo);
-          if (!respaldoObj) return false;
-          
-          const estadoRespaldo = this.getEstadoPersona(respaldoObj, dia);
-          return estadoRespaldo === 'Licencia' || estadoRespaldo === 'Comisión' || estadoRespaldo === '';
-        },
-
-        getConflictoMensaje(person, dia) {
-          const respaldo = this.backupPlan[person.name];
-          const respaldoObj = this.people.find(p => p.name === respaldo);
-          if (!respaldoObj) return 'Respaldo no encontrado';
-          
-          const estadoRespaldo = this.getEstadoPersona(respaldoObj, dia);
-          const estadoMap = {
-            'Licencia': 'licencia',
-            'Comisión': 'comisión',
-            '': 'sin asignar'
-          };
-          return `${respaldo} está de ${estadoMap[estadoRespaldo] || estadoRespaldo}`;
-        },
-
-        getConflictos() {
-          const conflictos = [];
-          this.people.forEach(person => {
-            this.days.forEach(dia => {
-              if (!this.esFeriado(dia, this.semanaActual) && this.tieneConflicto(person, dia)) {
-                const respaldo = this.backupPlan[person.name];
-                const respaldoObj = this.people.find(p => p.name === respaldo);
-                const estadoRespaldo = this.getEstadoPersona(respaldoObj, dia);
-                conflictos.push({
-                  id: `${person.name}-${dia}`,
-                  persona: person.name,
-                  estado: this.getEstadoPersona(person, dia),
-                  respaldo: respaldo,
-                  estadoRespaldo: estadoRespaldo || 'Sin asignar',
-                  dia: dia
-                });
-              }
-            });
-          });
-          return conflictos;
-        },
-
-        getCoverageIcon(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return '🏖️';
-          const estado = this.getEstadoPersona(person, dia);
-          const tieneConflicto = this.tieneConflicto(person, dia);
-          
-          if (tieneConflicto) return '⚠️';
-          if (estado === 'Presencial') return '✅';
-          if (estado === 'Home Office') return '🏠';
-          if (estado === 'Comisión') {
-            return this.tieneRespaldo(person) ? '🟣' : '🔴';
-          }
-          if (estado === 'Licencia') {
-            return this.tieneRespaldo(person) ? '🟡' : '🔴';
-          }
-          if (estado === '') {
-            return this.tieneRespaldo(person) ? '🟡' : '🔴';
-          }
-          return '❓';
-        },
-
-        getCoverageStatusText(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return 'FERIADO';
-          const estado = this.getEstadoPersona(person, dia);
-          const tieneConflicto = this.tieneConflicto(person, dia);
-          
-          if (tieneConflicto) return '⚠️ CONFLICTO';
-          if (estado === 'Presencial') return 'Presente';
-          if (estado === 'Home Office') return 'Home Office';
-          if (estado === 'Comisión') {
-            return this.tieneRespaldo(person) ? 'Comisión (cubierto)' : '¡EN COMISIÓN!';
-          }
-          if (estado === 'Licencia') {
-            return this.tieneRespaldo(person) ? 'Licencia (cubierto)' : '¡DE LICENCIA!';
-          }
-          if (estado === '') {
-            return this.tieneRespaldo(person) ? 'Sin asignar (cubierto)' : '¡SIN ASIGNAR!';
-          }
-          return 'Estado desconocido';
-        },
-
-        getCoverageBackupClass(person, dia) {
-          if (this.tieneConflicto(person, dia)) return 'conflicto';
-          if (!this.tieneRespaldo(person)) return 'critical';
-          return '';
-        },
-
-        getCoverageBackupName(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return '';
-          const estado = this.getEstadoPersona(person, dia);
-          if (estado === 'Licencia' || estado === 'Comisión' || estado === '') {
-            if (this.tieneConflicto(person, dia)) {
-              return `❌ ${this.backupPlan[person.name] || 'SIN RESPALDO'}`;
-            }
-            return this.backupPlan[person.name] || '⚠️ SIN RESPALDO';
-          }
-          return '';
-        },
-
-        getCoverageBadgeLabel(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return '🏖️';
-          const estado = this.getEstadoPersona(person, dia);
-          if (this.tieneConflicto(person, dia)) return '¡CONFLICTO!';
-          if (estado === 'Presencial' || estado === 'Home Office') return 'OK';
-          if (estado === 'Comisión') {
-            return this.tieneRespaldo(person) ? 'Cubierto' : '¡URGENTE!';
-          }
-          if (estado === 'Licencia' || estado === '') {
-            return this.tieneRespaldo(person) ? 'Cubierto' : '¡URGENTE!';
-          }
-          return '';
-        },
-
-        getCoverageBadgeStatus(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return 'info';
-          if (this.tieneConflicto(person, dia)) return 'conflicto';
-          const estado = this.getEstadoPersona(person, dia);
-          if (estado === 'Presencial' || estado === 'Home Office') return 'ok';
-          if (estado === 'Comisión') {
-            return this.tieneRespaldo(person) ? 'info' : 'danger';
-          }
-          if (estado === 'Licencia' || estado === '') {
-            return this.tieneRespaldo(person) ? 'warning' : 'danger';
-          }
-          return '';
-        },
-
-        getCoverageCardClass(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return 'feriado';
-          if (this.tieneConflicto(person, dia)) return 'conflicto';
-          const estado = this.getEstadoPersona(person, dia);
-          if (estado === 'Presencial' || estado === 'Home Office') return 'presente';
-          if (estado === 'Comisión') {
-            return this.tieneRespaldo(person) ? 'comision' : 'critico';
-          }
-          if (estado === 'Licencia' || estado === '') {
-            return this.tieneRespaldo(person) ? 'cubierto' : 'critico';
-          }
-          return '';
-        },
-
-        getDotStatus(person, dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return 'feriado';
-          if (this.tieneConflicto(person, dia)) return 'conflicto';
-          const estado = this.getEstadoPersona(person, dia);
-          if (estado === 'Presencial' || estado === 'Home Office') return 'presente';
-          if (estado === 'Comisión') {
-            return this.tieneRespaldo(person) ? 'comision' : 'critico';
-          }
-          if (estado === 'Licencia' || estado === '') {
-            return this.tieneRespaldo(person) ? 'cubierto' : 'critico';
-          }
-          return '';
-        },
-
-        getDiaCobertura(dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return '🏖️';
-          let cubiertos = 0;
-          let total = this.people.length;
-          
-          this.people.forEach(p => {
-            const estado = this.getEstadoPersona(p, dia);
-            const tieneConflicto = this.tieneConflicto(p, dia);
-            
-            if (estado === 'Presencial' || estado === 'Home Office') {
-              cubiertos++;
-            } else if ((estado === 'Licencia' || estado === 'Comisión' || estado === '') && this.tieneRespaldo(p) && !tieneConflicto) {
-              cubiertos++;
-            }
-          });
-          
-          const conflictos = this.getConflictos().filter(c => c.dia === dia).length;
-          let sufijo = '';
-          if (conflictos > 0) sufijo = ` ⚠️${conflictos}`;
-          
-          return `${cubiertos}/${total} cubiertos${sufijo}`;
-        },
-
-        getDiaAlerta(dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return '';
-          const conflictos = this.getConflictos().filter(c => c.dia === dia).length;
-          if (conflictos >= 2) return 'critical';
-          if (conflictos >= 1) return 'warning';
-          
-          let criticos = 0;
-          this.people.forEach(p => {
-            const estado = this.getEstadoPersona(p, dia);
-            if ((estado === 'Licencia' || estado === 'Comisión' || estado === '') && !this.tieneRespaldo(p)) {
-              criticos++;
-            }
-          });
-          
-          if (criticos >= 2) return 'critical';
-          if (criticos >= 1) return 'warning';
-          return '';
-        },
-
-        getDiaBadgeClass(dia) {
-          if (this.esFeriado(dia, this.semanaActual)) return '';
-          const alerta = this.getDiaAlerta(dia);
-          return alerta === 'critical' ? 'critical' : alerta === 'warning' ? 'warning' : '';
         }
       }
     });
